@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Advento – Sonho de Natal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonte Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-body: #030712;
+      --bg-elevated: #050b1c;
+      --bg-card: #0b1021;
+      --border-soft: #141b33;
+      --text: #f9fafb;
+      --text-soft: #9ca3c7;
+      --accent: #a855ff;
+      --accent-soft: rgba(168,85,255,0.18);
+      --accent-strong: #e879f9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Sora", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 45%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      background: linear-gradient(to bottom, rgba(15,23,42,0.96), rgba(3,7,18,0.98));
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7);
+      overflow: hidden;
+    }
+
+    /* HEADER + HERO ------------------------------------------------------- */
+
+    header {
+      position: relative;
+      z-index: 2;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 18px 20px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #e5e7eb;
+    }
+
+    .logo {
+      font-weight: 600;
+      letter-spacing: .16em;
+      font-size: .78rem;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-links a {
+      opacity: 0.8;
+    }
+
+    .nav-links a:hover {
+      opacity: 1;
+      color: var(--accent-strong);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 72vh;
+      color: #f9fafb;
+      overflow: hidden;
+    }
+html {
+  scroll-behavior: smooth;
+}
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to bottom, rgba(15,23,42,0.9) 0%, rgba(15,23,42,0.6) 50%, rgba(15,23,42,0.98) 100%),
+        url("https://i.imgur.com/DVWATPh.jpeg");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.1);
+      z-index: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 60px 20px 60px;
+      min-height: 72vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* grande palavra ADVENTO ao fundo */
+    .hero-inner::before {
+      content: "ADVENTO";
+      position: absolute;
+      top: 8%;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(4.4rem, 13vw, 7.2rem);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(148,163,184,0.09);
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    .hero-title-small {
+      font-size: 0.82rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .hero-title-main {
+      font-size: clamp(2.5rem, 7vw, 4.1rem);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    .hero-strip {
+      margin-top: 26px;
+      padding: 10px 20px;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.8);
+      border: 1px solid rgba(148,163,184,0.3);
+      color: #e5e7eb;
+
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-strip span {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      opacity: 0.8;
+    }
+
+    .hero-strip strong {
+      font-size: 0.86rem;
+      letter-spacing: 0.2em;
+      color: var(--accent-strong);
+    }
+
+    .hero-strip-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #fef9c3 0, #fcd34d 45%, #fb923c 100%);
+      margin-right: 4px;
+      box-shadow: 0 0 16px rgba(252,211,77,0.9);
+    }
+
+    .hero-candles-wrapper {
+      margin-top: 44px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 32px;
+      padding-bottom: 8px;
+    }
+
+    .candle-hero {
+      position: relative;
+      width: 170px;
+      cursor: pointer;
+      transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    }
+
+    .candle-hero img {
+      width: 100%;
+      display: block;
+      border-radius: 999px;
+      box-shadow: 0 32px 60px rgba(0,0,0,0.9);
+      object-fit: cover;
+    }
+
+    .candle-hero-label {
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      opacity: 0.86;
+    }
+
+    .candle-hero.locked img {
+      opacity: 0.45;
+      filter: grayscale(70%) brightness(0.7);
+      cursor: default;
+    }
+
+    .candle-hero.past img {
+      opacity: 0.88;
+      filter: saturate(0.9);
+    }
+
+    .candle-hero.active img {
+      transform: translateY(-8px);
+      filter: saturate(1.05);
+    }
+
+    .hero-info {
+      margin-top: 34px;
+      font-size: 0.86rem;
+      color: #e5e7eb;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+    }
+
+    .hero-info strong {
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-strong);
+    }
+
+    /* MAIN SECTIONS -------------------------------------------------------- */
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px 56px;
+    }
+
+    section.section {
+      padding: 40px 0 12px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    p {
+      color: var(--text-soft);
+      margin-bottom: 0.6rem;
+      font-size: 0.95rem;
+    }
+
+    .section-intro {
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .section-card {
+  padding: 16px 14px 18px;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #020617, #020617, #020617, #0b1021);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease,
+    border-color 0.28s ease,
+    background 0.28s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(168,85,255,0.7);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.6);
+  background: radial-gradient(circle at top, #020617 0, #020617 40%, #020617 100%);
+}
+
+
+    .chip {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent-strong);
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      color: var(--text-soft);
+      font-size: 0.94rem;
+    }
+
+    ul li + li {
+      margin-top: 0.2rem;
+    }
+
+    /* Ilustrações para as matérias das velas */
+    .article-illustration {
+      margin-top: 10px;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #111827;
+    }
+
+    .article-illustration img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    /* COMO VIVER – layout com imagens laterais */
+    /* BLOCO COM IMAGEM DE FUNDO E CARD POR CIMA */
+.section-flex,
+.section-flex.reverse {
+  position: relative;
+  margin-top: 24px;
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* imagem ocupa todo o bloco ao fundo */
+.section-flex .figure-side {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: none;
+  background: #020617;
+  box-shadow: none;
+  z-index: 0;
+}
+
+.section-flex .figure-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* card por cima da imagem */
+.section-flex .section-card {
+  position: relative;
+  z-index: 1;
+  max-width: 420px;
+  margin: 24px;
+  background: rgba(15,23,42,0.92);
+  border: 1px solid rgba(148,163,184,0.5);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.75);
+  backdrop-filter: blur(14px);
+}
+
+/* card alinhado à direita na versão "reverse" */
+.section-flex.reverse .section-card {
+  margin-left: auto;
+  margin-right: 24px;
+}
+
+
+    /* MODAL / PERGAMINHO --------------------------------------------------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(3,7,18,0.55);      /* fundo escuro */
+  backdrop-filter: blur(14px);        /* blur do fundo */
+  -webkit-backdrop-filter: blur(14px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 16px;
+}
+
+.modal-backdrop.show {
+  display: flex;
+}
+
+.modal {
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  border-radius: 22px;
+
+  /* fundo quase transparente, deixando o blur aparecer */
+  background: rgba(15, 23, 42, 0.18);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  padding: 20px 18px 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+
+  /* borda branca fina */
+  border: 1px solid rgba(255, 255, 255, 0.85);
+
+  position: relative;
+}
+
+/* header do modal */
+.modal-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.maria-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 2px solid rgba(252, 211, 77, 0.9);
+  background: radial-gradient(circle at 20% 20%, #fefce8 0, #fbbf24 40%, #f59e0b 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  color: #111827;
+}
+
+.modal-title-area h3 {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+  color: #f9fafb;
+}
+
+.modal-title-area .subtitle {
+  font-size: 0.85rem;
+  color: #e5e7eb;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #f9fafb;
+}
+
+/* TEXTO DO MODAL TODO BRANCO */
+.parchment-text,
+.parchment-text * {
+  font-size: 0.95rem;
+  color: #f9fafb !important;
+  text-align: justify;
+}
+
+.parchment-text p {
+  margin-bottom: 0.5rem;
+}
+
+/* referência do Evangelho */
+.gospel-ref {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #f9fafb !important;
+  margin-bottom: 0.4rem;
+}
+
+/* caixa de exercício */
+.exercise-box {
+  margin-top: 0.7rem;
+  padding: 10px 10px;
+  border-radius: 14px;
+  border: 1px dashed rgba(248,250,252,0.5);
+  background: rgba(15,23,42,0.75);
+}
+
+.exercise-box h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #ffffff;
+}
+
+.exercise-box ul {
+  margin-top: 0.2rem;
+  margin-bottom: 0.1rem;
+}
+
+/* oração final */
+.prayer {
+  margin-top: 0.7rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(248,250,252,0.45);
+  font-style: italic;
+  font-size: 0.9rem;
+  color: #f9fafb;
+}
+
+.prayer strong { font-style: normal; }
+
+/* ilustração menor no topo */
+.modal-illust {
+  max-width: 220px;
+  margin: 6px auto 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(180, 144, 70, 0.7);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+.modal-illust img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+
+
+    /* FOOTER --------------------------------------------------------------- */
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 16px 26px;
+      background: #020617;
+      border-top: 1px solid #111827;
+      color: #9ca3c7;
+      font-size: 0.84rem;
+    }
+
+    footer .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer a {
+      color: var(--accent-strong);
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVO ----------------------------------------------------------- */
+
+    @media (max-width: 840px) {
+      header { padding-inline: 16px; }
+      .nav-links { display: none; }
+      .hero-inner { padding-inline: 16px; }
+      .hero-candles-wrapper { gap: 18px; }
+      .candle-hero { width: 130px; }
+      .section-flex,
+  .section-flex.reverse {
+    margin-top: 18px;
+    border-radius: 20px;
+  }
+
+  .section-flex .section-card,
+  .section-flex.reverse .section-card {
+    max-width: none;
+    margin: 16px;
+      }
+    }
+
+    @media (max-width: 560px) {
+
+  /* reduz a altura total do hero */
+  .hero {
+    min-height: 420px; /* antes era maior */
+  }
+
+  /* diminui e recentraliza o background */
+  .hero-bg {
+    background-size: 160%;         /* antes ~200–220% */
+    background-position: center -10px; /* sobe um pouco */
+  }
+
+  /* conteúdo interno mais compacto */
+  .hero-inner {
+    padding-top: 70px;
+    padding-bottom: 28px;
+  }
+
+  /* reduz o texto decorativo ADVENTO ao fundo */
+  .hero-inner::before {
+    top: 10%;
+    opacity: 0.18;
+    font-size: clamp(2.8rem, 12vw, 3.6rem);
+  }
+
+  /* barra “HOJE – 1º DOMINGO...” */
+  .hero-strip {
+    width: 96%;
+    margin-inline: auto;
+    padding: 6px 14px;
+  }
+
+  /* velas ajustadas */
+  .hero-candles-wrapper {
+    margin-top: 20px;
+    gap: 10px;
+    padding: 0 10px 6px;
+  }
+
+  .candle-hero {
+    width: 92px;  /* cabe perfeitamente 4 velas */
+  }
+}
+
+
+  .hero-info {
+    padding-inline: 10px;
+  }
+}
+
+@keyframes shine {
+  0% { opacity: .2; transform: scale(.8); }
+  50% { opacity: 1; transform: scale(1); }
+  100% { opacity: .2; transform: scale(.8); }
+}
+/* CALENDÁRIO DO ADVENTO – ÍCONES COM HOVER */
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.calendar-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  background: linear-gradient(145deg, #020617, #020617, #020617, #020617);
+  box-shadow: 0 16px 32px rgba(0,0,0,0.35);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.calendar-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(168, 85, 255, 0.7);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.65);
+  background: radial-gradient(circle at top left, #111827 0, #020617 45%, #020617 100%);
+}
+
+.calendar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 20%, #fef9c3 0, #facc15 45%, #fb923c 100%);
+  box-shadow: 0 0 18px rgba(250, 204, 21, 0.8);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #111827;
+}
+
+.calendar-day {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.calendar-month {
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+}
+
+.calendar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.calendar-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.calendar-sub {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+.starry-sky {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: #020617;
+  overflow: hidden;
+}
+
+.starry-sky span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  animation: shine 3s infinite ease-in-out;
+  opacity: 0.6;
+}
+
+  </style>
+</head>
+<body>
+<div class="starry-sky">
+  <span style="top:10%;left:20%"></span>
+  <span style="top:22%;left:70%"></span>
+  <span style="top:40%;left:35%"></span>
+  <span style="top:63%;left:80%"></span>
+  <span style="top:75%;left:10%"></span>
+  <!-- você pode copiar/colar mais spans -->
+</div>
+<div class="page-wrap">
+
+  <!-- HERO ------------------------------------------------------------ -->
+  <div class="hero">
+    <div class="hero-bg"></div>
+
+    <header>
+      <div class="logo">Advento &amp; Espera</div>
+      <nav class="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#velas">Velas</a>
+        <a href="#como-viver">Como viver</a>
+      </nav>
+    </header>
+
+    <div class="hero-inner">
+      <div class="hero-title">
+        <div class="hero-title-small">TEMPO DE PREPARAÇÃO</div>
+        <div class="hero-title-main">SONHO DE NATAL</div>
+      </div>
+
+      <div class="hero-strip">
+        <span><span class="hero-strip-dot"></span></span>
+        <span>Hoje</span>
+        <strong id="heroStripWeek">–</strong>
+      </div>
+
+      <div class="hero-candles-wrapper" id="heroCandles">
+        <!-- velas (apagadas por padrão; JS troca para acesas) -->
+        <figure class="candle-hero" data-index="0">
+          <img src="https://i.imgur.com/Kx9syiE.png" alt="Primeira vela do Advento">
+          <figcaption class="candle-hero-label">Esperança</figcaption>
+        </figure>
+        <figure class="candle-hero" data-index="1">
+          <img src="https://i.imgur.com/Kx9syiE.png" alt="Segunda vela do Advento">
+          <figcaption class="candle-hero-label">Paz</figcaption>
+        </figure>
+        <figure class="candle-hero" data-index="2">
+          <img src="https://i.imgur.com/Kx9syiE.png" alt="Terceira vela do Advento">
+          <figcaption class="candle-hero-label">Alegria</figcaption>
+        </figure>
+        <figure class="candle-hero" data-index="3">
+          <img src="https://i.imgur.com/Kx9syiE.png" alt="Quarta vela do Advento">
+          <figcaption class="candle-hero-label">Amor</figcaption>
+        </figure>
+      </div>
+
+      <div class="hero-info" id="heroInfo"></div>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO --------------------------------------------------------- -->
+  <main>
+    <section class="section" id="sobre">
+  <div class="section-intro">
+    <h2>O que é o Advento?</h2>
+    <p>
+      O Advento é um tempo de silêncio, vigilância e esperança. Nele, a Igreja nos
+      convida a olhar para frente: Jesus vem, e queremos encontrá-Lo com o coração
+      acordado.
+    </p>
+  </div>
+
+
+      <div class="section-grid">
+        <article class="section-card">
+          <div class="chip">Espera</div>
+          <h3>Tempo de espera</h3>
+          <p>
+            Não é uma espera passiva, mas cheia de sentido. A cada domingo acendemos uma vela
+            para lembrar que a luz de Cristo está se aproximando.
+          </p>
+        </article>
+
+        <article class="section-card">
+          <div class="chip">Conversão</div>
+          <h3>Tempo de conversão</h3>
+          <p>
+            Preparar-se para o Natal é deixar Deus reorganizar a casa interior:
+            rever escolhas, pedir perdão, recomeçar.
+          </p>
+        </article>
+
+        <article class="section-card">
+          <div class="chip">Esperança</div>
+          <h3>Tempo de esperança</h3>
+          <p>
+            Mesmo em meio às sombras do mundo, o Advento recorda:
+            Deus não esqueceu de nós. Ele vem ao nosso encontro.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- AS VELAS -------------------------------------------------------- -->
+    <section class="section" id="velas">
+      <div class="section-intro">
+        <h2>As quatro velas do Advento</h2>
+        <p>
+          Cada vela traz um aspecto da vinda de Jesus que queremos acolher.
+          Você pode rezar com esses significados toda vez que acender a coroa
+          em casa ou na comunidade.
+        </p>
+      </div>
+
+      <div class="section-grid">
+        <article class="section-card">
+          <h3>1ª vela – Esperança</h3>
+          <p>
+            Recorda que Deus cumpre suas promessas. Mesmo quando tudo parece igual,
+            Ele está agindo em silêncio, preparando algo novo.
+          </p>
+          <div class="article-illustration">
+            <img src="https://i.imgur.com/6rMzjCM.png" alt="Ilustração pergaminho Advento 1">
+          </div>
+        </article>
+
+        <article class="section-card">
+          <h3>2ª vela – Paz</h3>
+          <p>
+            Cristo é nossa paz. Ao acender essa vela, pedimos que Ele desarme o
+            coração, cure feridas e apazigue nossas relações.
+          </p>
+          <div class="article-illustration">
+            <img src="https://i.imgur.com/QbbH2yi.png" alt="Ilustração pergaminho Advento 2">
+          </div>
+        </article>
+
+        <article class="section-card">
+          <h3>3ª vela – Alegria</h3>
+          <p>
+            No Domingo da Alegria (Gaudete), celebramos que o Senhor está perto.
+            É uma alegria discreta, mas profunda, que nasce da fé.
+          </p>
+          <div class="article-illustration">
+            <img src="https://i.imgur.com/cPfxJD3.png" alt="Ilustração pergaminho Advento 3">
+          </div>
+        </article>
+
+        <article class="section-card">
+          <h3>4ª vela – Amor</h3>
+          <p>
+            A última vela recorda o amor de Deus que se faz pequeno em Belém.
+            É convite a amar de modo simples, concreto, diário.
+          </p>
+          <!-- ilustração da 4ª vela pode ser adicionada depois -->
+          <div class="article-illustration">
+            <img src="https://i.imgur.com/HrmfC7l.png"
+                 alt="Ilustração pergaminho Advento 4 (substituir)">
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- COMO VIVER ------------------------------------------------------ -->
+    <section class="section" id="como-viver">
+      <div class="section-intro">
+        <h2>Como viver essa espera</h2>
+        <p>Algumas ideias para rezar com esta página ao longo do Advento:</p>
+      </div>
+
+      <!-- Em família -->
+      <div class="section-flex">
+        <div class="section-card">
+          <h3>Em família</h3>
+          <ul>
+            <li>Acender a vela da semana juntos antes do jantar.</li>
+            <li>Ler o Evangelho usando o pergaminho de Maria.</li>
+            <li>Rezar uma breve oração espontânea, deixando as crianças falarem também.</li>
+          </ul>
+        </div>
+        <figure class="figure-side">
+          <!-- troque pela imagem de família que você quiser -->
+          <img src="https://i.imgur.com/iqntcZi.png"
+               alt="Família rezando no Advento">
+        </figure>
+      </div>
+
+      <!-- No pessoal -->
+      <div class="section-flex reverse" style="margin-top:24px;">
+        <figure class="figure-side">
+          <!-- troque pela imagem da pessoa rezando sozinha -->
+          <img src="https://i.imgur.com/rp63BFM.png"
+               alt="Pessoa rezando sozinha no Advento">
+        </figure>
+        <div class="section-card">
+          <h3>Rezar sozinho(a)</h3>
+          <ul>
+            <li>Separar um pequeno tempo de silêncio todos os dias.</li>
+            <li>Ler novamente o Evangelho do domingo e sublinhar uma frase.</li>
+            <li>Assumir um gesto concreto de caridade ou reconciliação a cada semana.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALENDÁRIO ------------------------------------------------------ -->
+   <section class="section">
+  <div class="section-intro">
+    <h2>Calendário do Advento 2025</h2>
+</div>
+
+  <div class="calendar-grid">
+    <div class="calendar-item">
+      <div class="calendar-icon">
+        <span class="calendar-day">30</span>
+        <span class="calendar-month">NOV</span>
+      </div>
+      <div class="calendar-text">
+        <div class="calendar-title">1º Domingo do Advento</div>
+        <div class="calendar-sub">Vela da Esperança</div>
+      </div>
+    </div>
+
+    <div class="calendar-item">
+      <div class="calendar-icon">
+        <span class="calendar-day">07</span>
+        <span class="calendar-month">DEZ</span>
+      </div>
+      <div class="calendar-text">
+        <div class="calendar-title">2º Domingo do Advento</div>
+        <div class="calendar-sub">Vela da Paz</div>
+      </div>
+    </div>
+
+    <div class="calendar-item">
+      <div class="calendar-icon">
+        <span class="calendar-day">14</span>
+        <span class="calendar-month">DEZ</span>
+      </div>
+      <div class="calendar-text">
+        <div class="calendar-title">3º Domingo do Advento</div>
+        <div class="calendar-sub">Vela da Alegria</div>
+      </div>
+    </div>
+
+    <div class="calendar-item">
+      <div class="calendar-icon">
+        <span class="calendar-day">21</span>
+        <span class="calendar-month">DEZ</span>
+      </div>
+      <div class="calendar-text">
+        <div class="calendar-title">4º Domingo do Advento</div>
+        <div class="calendar-sub">Vela do Amor</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- FOOTER ----------------------------------------------------------- -->
+  <footer>
+    <div class="footer-inner">
+      <span>Página criada por <strong>André Design</strong>.</span>
+      <span>
+        <a href="https://www.instagram.com/andrelevydesigner/" target="_blank" rel="noopener noreferrer">
+          Instagram
+        </a>
+        &nbsp;|&nbsp;
+        <a href="https://linktr.ee/andrelevydesigner?utm_source=linktree_profile_share&ltsid=d38fbec4-b29f-4ed0-bebc-fb6be5531d1f"
+           target="_blank" rel="noopener noreferrer">
+          Linktree
+        </a>
+      </span>
+    </div>
+  </footer>
+</div>
+
+<!-- MODAL -------------------------------------------------------------- -->
+<div class="modal-backdrop" id="modalBackdrop" aria-hidden="true">
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="close-btn" id="modalClose" aria-label="Fechar pergaminho">&times;</button>
+    <div class="modal-header">
+      <div class="maria-icon" aria-hidden="true">M</div>
+      <div class="modal-title-area">
+        <h3 id="modalTitle">Maria, mulher da espera</h3>
+        <div class="subtitle" id="modalSubtitle">Domingo do Advento</div>
+      </div>
+    </div>
+    <div class="parchment-text">
+  <!-- 👉 Ilustração agora vem primeiro, menor -->
+  <div class="modal-illust" id="modalIllustWrap">
+    <img id="modalIllustration" src="" alt="Ilustração do domingo do Advento">
+  </div>
+
+  <div class="gospel-ref" id="modalGospelRef">Evangelho: Mt 24, 37–44</div>
+  <div id="modalSummary"></div>
+  <br />
+  <div id="modalComment"></div>
+
+  <div class="exercise-box">
+    <h4>Exercício para esta semana</h4>
+    <div id="modalExercise"></div>
+  </div>
+
+  <div class="prayer" id="modalPrayer"></div>
+</div>
+
+  </div>
+</div>
+
+<script>
+  const CANDLE_OFF = "https://i.imgur.com/Kx9syiE.png";
+  const CANDLE_ON  = "https://i.imgur.com/S0RADo3.png";
+
+  const adventSundays = [
+    {
+      date: "2025-11-30",
+      weekLabel: "1º Domingo – Esperança",
+      candleName: "Esperança",
+      gospelRef: "Mt 24, 37–44",
+      title: "1º Domingo do Advento – Vela da Esperança",
+      summary: `
+        Jesus fala aos discípulos sobre a sua vinda inesperada. Como nos dias de Noé,
+        muitos viviam distraídos, sem perceber o que estava para acontecer.
+        Ele pede: <strong>“ficai atentos”</strong>, preparados para acolher o Senhor.
+      `,
+      comment: `
+        <p><strong>Maria</strong> é a mulher que viveu o Advento de verdade:
+        ela esperou Jesus não só em quatro domingos, mas em cada dia da sua vida.
+        Quando o anjo anunciou, ela não sabia todos os detalhes, mas respondeu:
+        “faça-se”. Foi assim que ela passou da preocupação à confiança.</p>
+
+        <p>O Evangelho de hoje fala de vigilância. Maria nos mostra que vigiar
+        não é viver com medo, mas com atenção amorosa: perceber os sinais de Deus
+        na rotina, guardar a Palavra no coração, deixar-se conduzir pelo Espírito.</p>
+
+        <p>Enquanto o mundo corre, compra e se distrai, Maria nos convida a um outro
+        tipo de preparação: mais interior que exterior. Não é só preparar árvore,
+        luzes e presentes, mas abrir um espaço real para Jesus nascer de novo
+        dentro de nós.</p>
+      `,
+      exercise: `
+        <ul>
+          <li><strong>Silêncio diário:</strong> escolha um horário fixo para ficar de
+          3 a 5 minutos em silêncio, repetindo no coração: “Vem, Senhor Jesus”.</li>
+          <li><strong>Troca concreta:</strong> diminua um pouco uma distração
+          (celular, série, etc.) e use esse tempo para ler o Evangelho do domingo.</li>
+          <li><strong>Cuidar de alguém:</strong> pense em uma pessoa desanimada e faça
+          um gesto de esperança por ela (mensagem, visita, ajuda concreta).</li>
+        </ul>
+      `,
+      prayer: `
+        <strong>Oração:</strong> Maria, mulher da espera e da vigilância, guarda meu
+        coração neste Advento. Ajuda-me a não viver distraído, mas atento à vinda
+        de Jesus. Que esta primeira vela desperte em mim a esperança de que Ele vem
+        por amor a mim. Amém.
+      `,
+      illustration: "https://i.imgur.com/6rMzjCM.png"
+    },
+    {
+      date: "2025-12-07",
+      weekLabel: "2º Domingo – Paz",
+      candleName: "Paz",
+      gospelRef: "Mc 1, 1–8",
+      title: "2º Domingo do Advento – Vela da Paz",
+      summary: `
+        João Batista prepara o caminho do Senhor, convidando o povo à conversão.
+        O coração que acolhe Jesus é um coração em paz com Deus e com os irmãos.
+      `,
+      comment: `
+        <p>Maria acolhe o Príncipe da Paz em seu ventre e o leva aos outros.
+        Ela nos mostra que a verdadeira paz nasce quando deixamos Deus entrar
+        nas zonas de conflito interior: culpas, mágoas, auto-acusações.</p>
+
+        <p>Neste domingo, somos chamados a “endireitar os caminhos”:
+        pedir perdão, perdoar e permitir que o Espírito Santo pacifique
+        nossa história.</p>
+      `,
+      exercise: `
+        <ul>
+          <li>Rezar por uma pessoa com quem você tem dificuldade de relacionamento.</li>
+          <li>Dar um passo concreto de reconciliação, se for possível.</li>
+          <li>Fazer um breve exame de consciência à noite, pedindo a paz de Deus.</li>
+        </ul>
+      `,
+      prayer: `
+        <strong>Oração:</strong> Maria, Mãe da Paz, ajuda-me a deixar Jesus pacificar
+        meu coração e minhas relações. Que esta segunda vela acesa seja sinal de
+        reconciliação em minha casa. Amém.
+      `,
+      illustration: "https://i.imgur.com/QbbH2yi.png"
+    },
+    {
+      date: "2025-12-14",
+      weekLabel: "3º Domingo – Alegria",
+      candleName: "Alegria",
+      gospelRef: "Jo 1, 6–8.19–28",
+      title: "3º Domingo do Advento – Vela da Alegria",
+      summary: `
+        É o Domingo da Alegria (Gaudete). Mesmo antes de ver Jesus plenamente,
+        a Igreja se alegra porque sabe que o Senhor está perto.
+      `,
+      comment: `
+        <p>A alegria de Maria não é superficial; nasce da certeza de que Deus
+        olhou para a sua pequenez. Ela canta o Magnificat porque sabe que o Senhor
+        é fiel em todas as suas promessas.</p>
+
+        <p>Neste domingo, somos convidados a reencontrar essa alegria simples,
+        que não depende de coisas, mas de saber que somos amados por Deus.</p>
+      `,
+      exercise: `
+        <ul>
+          <li>Agradecer todos os dias, em voz alta, por três coisas simples.</li>
+          <li>Procurar alegrar alguém com uma palavra de encorajamento.</li>
+          <li>Rezar o Magnificat ao menos uma vez na semana.</li>
+        </ul>
+      `,
+      prayer: `
+        <strong>Oração:</strong> Maria, causa de nossa alegria, ensina-me a encontrar
+        alegria em Deus, mesmo nos dias difíceis. Que esta vela acesa lembre que
+        o Senhor está perto. Amém.
+      `,
+      illustration: "https://i.imgur.com/GueJX4c.png"
+    },
+    {
+      date: "2025-12-21",
+      weekLabel: "4º Domingo – Amor",
+      candleName: "Amor",
+      gospelRef: "Lc 1, 26–38",
+      title: "4º Domingo do Advento – Vela do Amor",
+      summary: `
+        O anjo anuncia a Maria que ela será a Mãe do Salvador.
+        O amor de Deus se faz carne no “sim” de uma jovem de Nazaré.
+      `,
+      comment: `
+        <p>No quarto domingo, o Advento está quase no fim. A luz já enche a
+        coroa, e Maria está às portas do nascimento de Jesus. O amor de Deus
+        se aproxima em forma de Criança.</p>
+
+        <p>Também nós somos convidados a dizer “sim” ao que Deus nos pede hoje:
+        em casa, no trabalho, na comunidade. O amor verdadeiro sempre envolve
+        um pouco de risco e de entrega.</p>
+      `,
+      exercise: `
+        <ul>
+          <li>Oferecer um serviço concreto em casa sem esperar reconhecimento.</li>
+          <li>Preparar um gesto de caridade para alguém mais necessitado neste Natal.</li>
+          <li>Rezar devagar a Ave-Maria, pedindo a graça de amar como Maria amou.</li>
+        </ul>
+      `,
+      prayer: `
+        <strong>Oração:</strong> Maria, Mãe do Amor encarnado, ajuda-me a viver
+        este Natal não só recebendo, mas também oferecendo amor concreto.
+        Que a luz de todas as velas prepare meu coração para acolher Jesus. Amém.
+      `,
+      illustration: "https://via.placeholder.com/600x400/fff7d6/5b4630?text=Ilustracao+Advento+4"
+    }
+  ];
+
+  function getTodayISO() {
+    const now = new Date();
+    return now.toISOString().slice(0, 10);
+  }
+
+  function getActiveIndex(todayISO) {
+    let activeIndex = -1;
+    adventSundays.forEach((item, index) => {
+      if (item.date <= todayISO) activeIndex = index;
+    });
+    return activeIndex;
+  }
+
+  function formatDateBR(iso) {
+    const [y, m, d] = iso.split("-");
+    return `${d}/${m}/${y}`;
+  }
+
+  const todayISO = getTodayISO();
+  const activeIndex = getActiveIndex(todayISO);
+
+  const candleEls = document.querySelectorAll(".candle-hero");
+  const heroInfo = document.getElementById("heroInfo");
+  const heroStripWeek = document.getElementById("heroStripWeek");
+
+  function updateHero() {
+    if (activeIndex === -1) {
+      heroStripWeek.textContent = "ADVENTO AINDA NÃO INICIADO";
+      heroInfo.textContent =
+        "Assim que o primeiro domingo do Advento chegar, a primeira vela será acesa.";
+    } else {
+      const current = adventSundays[activeIndex];
+      heroStripWeek.textContent = current.weekLabel.toUpperCase();
+      heroInfo.innerHTML =
+        `Hoje: <strong>${current.weekLabel}</strong> (${formatDateBR(current.date)}) – ` +
+        `clique na vela acesa para rezar com o Evangelho.`;
+    }
+
+    candleEls.forEach((el, idx) => {
+      const img = el.querySelector("img");
+      let state;
+
+      if (activeIndex === -1) state = "locked";
+      else if (idx < activeIndex) state = "past";
+      else if (idx === activeIndex) state = "active";
+      else state = "locked";
+
+      el.classList.remove("locked", "past", "active");
+      el.classList.add(state);
+
+      if (state === "active" || state === "past") {
+        img.src = CANDLE_ON;
+        el.onclick = () => openModal(idx);
+      } else {
+        img.src = CANDLE_OFF;
+        el.onclick = null;
+      }
+    });
+  }
+
+  // MODAL --------------------------------------------------------------
+  const modalBackdrop = document.getElementById("modalBackdrop");
+  const modalClose = document.getElementById("modalClose");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalSubtitle = document.getElementById("modalSubtitle");
+  const modalGospelRef = document.getElementById("modalGospelRef");
+  const modalSummary = document.getElementById("modalSummary");
+  const modalComment = document.getElementById("modalComment");
+  const modalExercise = document.getElementById("modalExercise");
+  const modalPrayer = document.getElementById("modalPrayer");
+  const modalIllustWrap = document.getElementById("modalIllustWrap");
+  const modalIllustration = document.getElementById("modalIllustration");
+
+  function openModal(index) {
+    const sunday = adventSundays[index];
+    modalTitle.textContent = "Maria, mulher da espera";
+    modalSubtitle.textContent = sunday.title;
+    modalGospelRef.textContent = `Evangelho: ${sunday.gospelRef}`;
+    modalSummary.innerHTML = sunday.summary;
+    modalComment.innerHTML = sunday.comment;
+    modalExercise.innerHTML = sunday.exercise;
+    modalPrayer.innerHTML = sunday.prayer;
+
+    if (sunday.illustration) {
+      modalIllustration.src = sunday.illustration;
+      modalIllustration.alt = `Ilustração do ${sunday.weekLabel}`;
+      modalIllustWrap.style.display = "block";
+    } else {
+      modalIllustWrap.style.display = "none";
+    }
+
+    modalBackdrop.classList.add("show");
+    modalBackdrop.setAttribute("aria-hidden", "false");
+  }
+
+  function closeModal() {
+    modalBackdrop.classList.remove("show");
+    modalBackdrop.setAttribute("aria-hidden", "true");
+  }
+
+  modalClose.addEventListener("click", closeModal);
+  modalBackdrop.addEventListener("click", (e) => {
+    if (e.target === modalBackdrop) closeModal();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeModal();
+  });
+
+  updateHero();
+</script>
+</body>
+</html>
+
